@@ -1,0 +1,282 @@
+.kafelki {
+  width: 100%;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-areas: "shop  video    video    video    video"
+ "shop  streams  streams  media    stuff"
+ "teams about    kon      download stuff"
+ "news  partners kon      download stuff         ";
+}
+
+@media screen and (max-width: 1000px) {
+  .kafelki {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "shop     video   "
+ "streams  media   "
+ "teams    kon     "
+ "news     about   "
+ "partners stuff   "
+ "download download";
+  }
+}
+
+.kafelki .shop, .kafelki .video, .kafelki .streams, .kafelki .media, .kafelki .stuff,
+.kafelki .teams, .kafelki .about, .kafelki .touch, .kafelki .download, .kafelki .news, .kafelki .partners {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .kafelki .shop, .kafelki .video, .kafelki .streams, .kafelki .media, .kafelki .stuff,
+  .kafelki .teams, .kafelki .about, .kafelki .touch, .kafelki .download, .kafelki .news, .kafelki .partners {
+    height: auto;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.border {
+  border: solid 1px #646668;
+}
+
+/* backgrounds*/
+.bg-shop {
+  background-image: url("https://images.unsplash.com/photo-1569343373812-c0a362e56cd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+}
+
+.bg-teams {
+  background-image: url("https://images.unsplash.com/photo-1569271532860-dd35503aaf1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");
+}
+
+.bg-video {
+  background-image: url("https://images.unsplash.com/photo-1569305773791-7b9246c0db75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+}
+
+.bg-streams {
+  background-image: url("https://images.unsplash.com/photo-1569212518174-7812bdce6eeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80");
+}
+
+.bg-stuff {
+  background-image: url("https://images.unsplash.com/photo-1569239474262-61602765e224?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
+}
+
+.bg-download {
+  background-image: url("https://images.unsplash.com/photo-1569255726446-50c4f6b6fe74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80");
+}
+
+.bg-about {
+  background-image: url("https://images.unsplash.com/photo-1556742077-0a6b6a4a4ac4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+}
+
+.bg-touch {
+  background-image: url("https://images.unsplash.com/photo-1569255574895-6399c80312e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80");
+}
+
+.bg-media {
+  background-image: url("https://images.unsplash.com/photo-1569285645462-a3f9c6332d56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+}
+
+.bg-news {
+  background-image: url("https://images.unsplash.com/photo-1569256205017-7522b07c82e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+}
+
+.bg-partners {
+  background-image: url("https://images.unsplash.com/photo-1569183839962-ee87fa803edc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+}
+
+/*-------*/
+.shop {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: shop;
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.zoom {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.zoom:hover .img,
+.zoom:focus .img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.zoom:hover .img:before,
+.zoom:focus .img:before {
+  display: block;
+}
+
+.img:before {
+  content: "";
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(193, 194, 196, 0.336);
+}
+
+.nag {
+  font-size: 55px;
+  color: black !important;
+  font-family: "Gill Sans", sans-serif;
+  position: relative;
+  height: 100%;
+  text-decoration: none;
+  overflow: hidden;
+  top: 10%;
+}
+
+.video {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-area: video;
+  text-align: center;
+}
+
+.news {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: streams;
+  text-align: center;
+}
+
+.media {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: media;
+  text-align: center;
+}
+
+.partners {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 5;
+  grid-area: stuff;
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .partners {
+    -webkit-writing-mode: horizontal-tb;
+        -ms-writing-mode: lr-tb;
+            writing-mode: horizontal-tb;
+    text-orientation: mixed;
+  }
+}
+
+.about {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: about;
+  text-align: center;
+}
+
+.touch {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: kon;
+  text-align: center;
+}
+
+.download {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  grid-area: download;
+  text-align: center;
+}
+
+.teams {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: teams;
+  text-align: center;
+}
+
+.streams {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: news;
+  text-align: center;
+}
+
+.stuff {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: partners;
+  text-align: center;
+}
+
+#foot {
+  font-size: 25px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  background: grey;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "par1 par2 par3 par4 par5 par6";
+}
+
+#parteners2 {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  #parteners2 {
+    display: inline-block;
+  }
+  #parteners1 {
+    display: none;
+  }
+}
+
+#download2 {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  #download2 {
+    display: inline-block;
+  }
+  #download1 {
+    display: none;
+  }
+}
+/*# sourceMappingURL=main-new.css.map */
